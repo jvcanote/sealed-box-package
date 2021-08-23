@@ -115,8 +115,7 @@ abstract class SBX_Service_Routes {
 	 * @return string
 	 */
 	private static function get_service_route_object( $route_id, $route_type ) {
-		$service = sbx_get_service( sbx_get_term_slug( $route_type, 'sbx_route_type' ) );
-		$service = sbx_get_var( $service, sbx_get_service( SEALED_BOX_BUILT_IN_ROUTE_TYPE ) );
+		$service = sbx_get_var( sbx_get_service( sbx_get_term_slug( $route_type, 'sbx_route_type' ) ), sbx_get_service( SEALED_BOX_BUILT_IN_ROUTE_TYPE ) );
 		if ( $service ) {
 			return $service->construct_route( $route_id );
 		}
