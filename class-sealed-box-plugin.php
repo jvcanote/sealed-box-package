@@ -317,8 +317,6 @@ class SealedBox {
         include_once SBX_ABSPATH . 'includes/abstracts/abstract-sbx-service-routes.php';
         include_once SBX_ABSPATH . 'includes/abstracts/abstract-sbx-service-route.php';
 
-        include_once SBX_ABSPATH . 'client/abstracts/abstract-sbx-client-procedural-value.php';
-
 		/**
 		 * Core classes and functions.
 		 */
@@ -326,9 +324,7 @@ class SealedBox {
         include_once SBX_ABSPATH . 'includes/class-sbx-services.php';
         include_once SBX_ABSPATH . 'includes/class-sbx-rest-route.php';
         include_once SBX_ABSPATH . 'includes/class-sbx-post-types.php';
-
-        include_once SBX_ABSPATH . 'client/class-sbx-client-procedural-value.php';
-        include_once SBX_ABSPATH . 'client/class-sbx-client-procedural-encrypted-value.php';
+        include_once SBX_ABSPATH . 'client/sbx-client-functions.php';
 
         if ( is_admin() ) {
             /**
