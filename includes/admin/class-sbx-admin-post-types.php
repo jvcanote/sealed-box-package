@@ -745,14 +745,19 @@ final class SBX_Admin_Post_Types {
             }
 
             #sealed-box-service-route-data .form-table th {
-                margin: 0;
-                padding: 0 0 14px 0;
+                padding-top: 0px;
+                padding-bottom: 14px;
             }
 
             #sealed-box-service-route-data .form-table td {
-                margin: 0;
-                padding: 14px 0 0px 0;
                 min-height: 30px;
+                position: relative;
+                top: 14px;
+            }
+
+            #sealed-box-service-route-data .form-table tbody td {
+                padding-top: 0;
+                padding-bottom: 14px;
             }
 
             #sealed-box-service-route-data .form-table th.col-1,
@@ -1109,7 +1114,7 @@ final class SBX_Admin_Post_Types {
 
             .sealed_box_options_panel input.button {
                 width: auto;
-                margin-left: 8px
+                /* margin-left: 8px */
             }
 
             .sealed_box_options_panel select {
@@ -1261,6 +1266,7 @@ final class SBX_Admin_Post_Types {
             #tiptip_holder {
                 display: none;
                 z-index: 8675309;
+                pointer-events: none;
                 position: absolute;
                 top: 0;
                 left: 0

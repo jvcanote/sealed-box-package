@@ -563,7 +563,7 @@ function sealed_box_wp_repeater_input( $field ) {
 		if ( ! empty( $field['description'] ) && false === $field['desc_tip'] ) {
 			echo '<tfoot>';
 				echo '<tr>';
-					echo '<td class="description" colspan="2">';
+					echo '<td class="description" colspan="3">';
 						echo '<small>' . wp_kses_post( $field['description'] ) . '</small>';
 					echo '</td>';
 
