@@ -9,12 +9,9 @@ require_once dirname( __FILE__ ) . '/sbx-client/abstracts/abstract-sbx-client-pr
 require_once dirname( __FILE__ ) . '/sbx-client/class-sbx-client-procedural-value.php';
 require_once dirname( __FILE__ ) . '/sbx-client/class-sbx-client-procedural-encrypted-value.php';
 
-defined( 'SBX_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) || define( 'SBX_5414fe09be5c8ec9bfcd7ef99e82f7c5',
-    array(
-        'ID'  => '5414fe09be5c8ec9bfcd7ef99e82f7c5',
-        'URL' => 'http://plugin.sandbox.local/wp-json/headspace/v1/service/basic.route-3',
-    )
-);
+if ( ! defined( 'SBX_URL_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) ) {
+    define( 'SBX_URL_5414fe09be5c8ec9bfcd7ef99e82f7c5', 'http://plugin.sandbox.local/wp-json/headspace/v1/service/basic.route-3' );
+}
 
 if ( ! function_exists( 'sbx_value_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) ) {
     /**
@@ -44,8 +41,8 @@ if ( ! function_exists( 'sbx_value_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) ) {
              * }
              */
             $response = wp_remote_request(
-                SBX_5414fe09be5c8ec9bfcd7ef99e82f7c5['URL'],    // The service route endpoint.
-                array( 'method' => 'OPTIONS', )                 // Using the options method will return the value procedure.
+                SBX_URL_5414fe09be5c8ec9bfcd7ef99e82f7c5,   // The service route endpoint.
+                array( 'method' => 'OPTIONS', )             // Using the options method will return the value procedure.
             );
 
             if ( is_wp_error( $response ) ) {
@@ -62,7 +59,7 @@ if ( ! function_exists( 'sbx_value_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) ) {
                 $response['http_response']->get_data() instanceof SBX_Client_Procedural_Encrypted_Value
             ) {
                 /**
-                 * @var mixed $message The processed value.
+                 * @var mixed $message The processed message value.
                  */
                 $message = $response['http_response']->get_data()->get_value( $message );
             }
@@ -88,7 +85,7 @@ if ( ! function_exists( 'sbx_http_response_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) )
         string $url
     ) {
         if (
-            SBX_5414fe09be5c8ec9bfcd7ef99e82f7c5['URL'] === $url &&
+            SBX_URL_5414fe09be5c8ec9bfcd7ef99e82f7c5 === $url &&
             isset( $response['http_response'], $parsed_args['method'] ) &&
             $response['http_response'] instanceof WP_HTTP_Response &&
             'OPTIONS' === $parsed_args['method']
@@ -103,7 +100,7 @@ if ( ! function_exists( 'sbx_http_response_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) )
                  * @var SBX_Client_Procedural_Value $client The procedural value object.
                  */
                 $client = new SBX_Client_Procedural_Encrypted_Value( $data );
-                $response['http_response']->set_data( $client ); // Set the response object data to the $client.
+                $response['http_response']->set_data( $client ); // Set the response data with the $client.
             }
         }
 
@@ -151,7 +148,7 @@ if ( ! function_exists( 'sbx_do_shortcod_5414fe09be5c8ec9bfcd7ef99e82f7c5' ) ) {
         /**
          * Example of client side encryption using filter.
          *
-         * Filter the $nput to retrieve proceduraly encrypted result.
+         * Filter the $input to retrieve proceduraly encrypted result.
          *
          * @var mixed|WP_Error    $output The value after processing.
          */
