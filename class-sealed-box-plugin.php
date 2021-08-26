@@ -324,7 +324,7 @@ class SealedBox {
         include_once SBX_ABSPATH . 'includes/class-sbx-services.php';
         include_once SBX_ABSPATH . 'includes/class-sbx-rest-route.php';
         include_once SBX_ABSPATH . 'includes/class-sbx-post-types.php';
-        include_once SBX_ABSPATH . 'client/sbx-client-functions.php';
+        include_once SBX_ABSPATH . 'sbx-client-functions.php';
 
         if ( is_admin() ) {
             /**
